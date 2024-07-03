@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe to My Channels</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <body>
+        <div class="aspect-ratio-9-16">
+            <div class="content">
+                <!-- Your content here -->
+            </div>
+            
+        </div>
+        
+    
+    <style>
+        .aspect-ratio-16x9 {
+    position: relative;
+    width: 100%; /* Adjust width as needed */
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (9 / 16 * 100) */
+    overflow: hidden;
+}
+.aspect-ratio-container {
+    position: relative;
+    width: 100%; /* Adjust width as needed */
+}
+
+.aspect-ratio-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+        /* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    
+    font-family: Arial, sans-serif;
+    background-color: #050138;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #ffffff;
+    color: #7a023e;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.logo {
+    max-width: 200px;
+    display: block;
+    margin: auto;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    color: #63022a;
+    text-shadow: #690319;
+}
+
+main {
+    padding: 40px 0;
+}
+
+.subscribe-section {
+    background-color: #dbd4d3;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+.social-icons img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 8;
+    box-shadow: #333;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="1.jpg" alt="Your Logo" class="logo">
+            <h1>WELCOME TO OUR CHURCH!</h1>
+            <p>CANAAN CHRISTIN WORSHIP CENTRE: </p>
+        </div>
+    </header>
+
+    <main>
+        <section class="subscribe-section">
+            <div class="container">
+                <h2>Subscribe to Stay Updated</h2>
+                <h3>delivery report</h3>
+                    <p>subscribers: <span id="subscribeCount">0</span></p>
+                    <p>followers: <span id="followersCount">0</span></p>
+                    <p>Likes: <span id="likesCount">0</span></p>              
+                <p>Subscribe to our YouTube channels and follow our social media:</p>
+                
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@CanaanChristianWorshipcenter" target="_blank">
+                        <img src="3.png.jpg" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com/canaanchristianwc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                        <img src="2.png.jpg" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/photo/?fbid=3261098724034129&set=a.105492502928116&__tn__=%3C/" target="_blank">
+                        <img src="4.png.jpg" alt="Facebook">
+                    </a>
+                    <a href="https://www.tiktok.com/@canaanchristianwc" target="_blank">
+                        <img src="5.jpg" alt="TikTok">
+                    </a>
+                    <p>Click This Button To Get Access With Our Channel </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Macho ya Mioyo Yenu Yatiwe Nuru</p>
+        </div>
+    </footer>
+
+    
+</body>
+<body>
+    <script>
+        document.getElementById('subscribeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const user = document.getElementById('user').value;
+            fetch('/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user: user })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            });
+        });
+
+        document.getElementById('followButton').addEventListener('click', function() {
+            fetch('/follow', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user: 'Current User' })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            });
+        });
+        document.getElementById('likeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const user = document.getElementById('user').value;
+            fetch('/like', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user: user })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            });
+        });
+    </script>
+</body>
+</html>
