@@ -113,20 +113,7 @@ footer {
     border-radius: 8;
     box-shadow: #333;
 }
-        #map {
-            height: 500px;
-            width: 100%;
-            max-width: 800px;
-            margin-top: 20px;
-        }
-        #form {
-            margin-top: 20px;
-        }
-        #form input, #form button {
-            padding: 10px;
-            margin: 5px;
-        }
-
+     
 
     </style>
 </head>
@@ -136,58 +123,6 @@ footer {
             <img src="1.jpg" alt="Your Logo" class="logo">
             <h1>WELCOME TO OUR CHURCH!</h1>
             <p>CANAAN CHRISTIN WORSHIP CENTRE: </p>
-            <body>
-    <h1>Add Location with Icon</h1>
-    <div id="map"></div>
-    <div id="form">
-        <input type="text" id="lat" placeholder="Latitude">
-        <input type="text" id="lng" placeholder="Longitude">
-        <input type="text" id="icon-url" placeholder="Icon URL">
-        <button onclick="addLocation()">Add Location</button>
-    </div>
-
-    <!-- Load the Google Maps JavaScript API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-    <script>
-        let map;
-        let markers = [];
-
-        function initMap() {
-            const initialLocation = { lat: -34.397, lng: 150.644 };
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: initialLocation,
-                zoom: 8
-            });
-
-            // Add a marker at the initial location
-            addMarker(initialLocation, null);
-        }
-
-        function addLocation() {
-            const lat = parseFloat(document.getElementById('lat').value);
-            const lng = parseFloat(document.getElementById('lng').value);
-            const iconUrl = document.getElementById('icon-url').value;
-
-            if (!isNaN(lat) && !isNaN(lng)) {
-                const location = { lat, lng };
-                addMarker(location, iconUrl);
-                map.setCenter(location);
-            } else {
-                alert('Please enter valid latitude and longitude values.');
-            }
-        }
-
-        function addMarker(location, iconUrl) {
-            const marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                icon: iconUrl ? iconUrl : null // Use custom icon if provided
-            });
-            markers.push(marker);
-        }
-    </script>
-        </div>
-    </header>
 
     <main>
         <section class="subscribe-section">
